@@ -8,7 +8,9 @@
 - [Next.js](https://nextjs.org) 16 (App Router, Turbopack) + React 19
 - Tailwind CSS 4
 - WebGL-шейдеры (`src/lib/shaders.ts`), процедурный звук (`src/lib/sound.ts`)
-- PostgreSQL + Drizzle ORM (health-проверка `/api/health`)
+
+Приложение полностью клиентское — никаких баз данных и переменных окружения
+не требуется, деплой на [Vercel](https://vercel.com) работает из коробки.
 
 ## Запуск
 
@@ -17,12 +19,9 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-Переменные окружения:
-
-- `DATABASE_URL` — строка подключения к PostgreSQL (требуется для `/api/health`;
-  сама визуализация работает и без неё)
-
 Полезные скрипты: `npm run build`, `npm run start`, `npm run lint`, `npm run typecheck`.
+
+`/api/health` — простой health-check (`{ "ok": true }`) для мониторинга деплоя.
 
 ## Структура
 

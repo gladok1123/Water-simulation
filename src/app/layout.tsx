@@ -1,18 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const serif = Cormorant_Garamond({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500"],
+// Self-hosted variable fonts (OpenType via next/font/local) so the build
+// doesn't depend on Google Fonts being reachable.
+const serif = localFont({
+  src: [
+    { path: "../fonts/cormorant-garamond-latin-wght-normal.woff2" },
+    { path: "../fonts/cormorant-garamond-cyrillic-wght-normal.woff2" },
+  ],
   variable: "--font-serif",
   display: "swap",
 });
 
-const sans = Manrope({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600"],
+const sans = localFont({
+  src: [
+    { path: "../fonts/manrope-latin-wght-normal.woff2" },
+    { path: "../fonts/manrope-cyrillic-wght-normal.woff2" },
+  ],
   variable: "--font-sans",
   display: "swap",
 });
