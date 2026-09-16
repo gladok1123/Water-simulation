@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Slow breathing halo around the intro button */
+@keyframes intro-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(180, 230, 255, 0.35),
+      0 0 24px rgba(180, 230, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(180, 230, 255, 0),
+      0 0 38px rgba(180, 230, 255, 0.35);
+  }
+}
+
+.intro-pulse {
+  animation: intro-pulse 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-pulse {
+    animation: none;
+  }
+}
+
+.water-cursor {
+  cursor: pointer;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Ccircle cx='13' cy='13' r='7' fill='rgba(255,255,255,0.15)' stroke='rgba(255,255,255,0.85)' stroke-width='1.5'/%3E%3C/svg%3E")
+      13 13,
+    pointer;
+}
